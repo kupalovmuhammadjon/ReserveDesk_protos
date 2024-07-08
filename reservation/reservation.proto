@@ -1,0 +1,94 @@
+syntax  = "proto3";
+
+option go_package = "genproto/proto";
+
+package reservation;
+
+service ReservationService {
+    rpc CreateReservation(ReservationRequese)   returns (Void) {}
+    rpc UpdateReservation(UReservationRequese)   returns (Void) {}
+    rpc DeleteReservation(BronID)   returns (Void) {}
+    rpc GetByIdReservation(BronID)  returns (ReservationRespons) {}
+    rpc ValidateReservation(ValidateID) returns (Exists) {}
+    rpc GetAllReservation(ReservationFilter)   returns (ReservationRespons) {}
+    rpc GetMenuOfRestaurant(RestaurantID)  returns (MenuRespons) {} // menu ni tanlash imkoniyati 
+
+    // ------------------------------------------------------------------------------------------
+    // rpc CheckingReservation() returns () {} // Bronning mavjudligini tekshirish.
+    // rpc Reservations()        returns () {} // Bronlar ro'yxatini olish.
+    // rpc PaymingReservation(BronID)  returns (Exists) {} // joyga to`lov qilish 
+    // -------------------------------------------------------------------------------------------
+}
+
+message RestaurantID {
+    string id = 1;
+}
+
+message MenuRespons {
+    string id = 1;
+    string item_type = 2; 
+    string name = 3;
+    int32 price = 4;
+    string description = 5;
+    string restaurant_id = 6;
+    string created_at = 7;
+    string updated_at = 8;
+}
+
+message ValidateID {
+    string id = 1;
+}
+
+message Exists {
+    bool Exists = 1;
+}
+
+message Void{}
+
+message ReservationRequese {
+    string id = 1;
+    string restaurant_id = 2;
+    string arriving_time = 3;
+    string user_id = 4;
+    int32  number_of_seats = 5;
+    string created_at = 6;
+    string updated_at = 7;
+    string deleted_at = 8;
+}
+
+message ReservationRespons{
+    string id = 1;
+    string restaurant_id = 2;
+    string arriving_time = 3;
+    string user_id = 4;
+    int32  number_of_seats = 5;
+    string created_at = 6;
+    string updated_at = 7;
+    string deleted_at = 8;
+}
+
+message UReservationRequese {
+    string restaurant_id = 1;
+    string arriving_time = 2;
+    string user_id = 3;
+    int32  number_of_seats = 4;
+    string updated_at = 5;
+    string deleted_at = 6;
+}
+
+message BronID {
+    string id = 1;
+}
+
+message ReservationFilter {
+    string created_at = 1;
+    int32  number_of_seats = 2;
+    string restaurant_id = 3;
+    string arriving_time = 4;
+    string user_id = 5;
+    int32 limmit = 6;
+    int32 offset = 7;
+}
+
+
+
