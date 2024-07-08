@@ -55,6 +55,6 @@ message MenuFilter {
     int32 price = 4;
     string description = 5;
     string restaurant_id = 6;
-    int32 limmit = 7;
+    int32 limit = 7;
     int32 offset = 8;
 }

@@ -23,6 +23,7 @@ message Orders {
 }
 
 message OrderInfo {
+    string id = 1;
     string reservation_id = 2;
     string menu_item_id = 3;
     int32  quantity = 4;
@@ -40,7 +41,7 @@ message OrderFilter {
     string reservation_id = 2;
     string menu_item_id = 3;
     int32  quantity = 4;
-    int32 limmit = 5;
+    int32 limit = 5;
     int32 offset = 6;
 }
 

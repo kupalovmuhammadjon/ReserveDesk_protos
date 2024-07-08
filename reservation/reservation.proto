@@ -8,7 +8,7 @@ service ReservationService {
     rpc CreateReservation(ReservationRequest)   returns (Void) {}
     rpc UpdateReservation(Reservation)   returns (Void) {}
     rpc DeleteReservation(Id)   returns (Void) {}
-    rpc GetByIdReservation(Id)  returns (ReservationInfo) {}
+    rpc GetReservationById(Id)  returns (ReservationInfo) {}
     rpc ValidateReservationId(Id) returns (Exists) {}
     rpc GetAllReservations(ReservationFilter)   returns (Reservations) {}
     rpc GetMenuOfRestaurant(Id)  returns (MenuRespons) {} // menu ni tanlash imkoniyati 
