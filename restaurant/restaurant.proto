@@ -9,7 +9,7 @@ service Restaurant {
     rpc GetRestaurants(RestaurantFilter) returns (Restaurants);
     rpc GetRestaurantById(Id) returns (Restaurants);
     rpc UpdateRestaurant(Id) returns (Void);
-    rpc DeleteRestaurant(Id) returns (Void);
+    rpc DeleteRestaurant(Id) returns (Void);        
 }
 
 message RestaurantInfo{
