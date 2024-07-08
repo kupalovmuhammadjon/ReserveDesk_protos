@@ -1,27 +1,23 @@
 syntax = "proto3";
 
-option go_package = "genproto/proto";
+option go_package = "genproto/menu";
 
 package Menu;
 
 service MenuService {
     rpc CreateMenu(MenuRequest)  returns  (Void)  {}
     rpc UpdateMenu(MenuUpateRequest)  returns  (Void)  {}
-    rpc DeleteMenu(MenuId)  returns  (Void)  {}
-    rpc GetByIdMenu(MenuId) returns  (MenuRespons)  {}
-    rpc GetAllMenu(MenuFilter)  returns  (MenuRespons)  {}
+    rpc DeleteMenu(Id)  returns  (Void)  {}
+    rpc GetByIdMenu(Id) returns  (MenuResponse)  {}
+    rpc GetAllMenu(MenuFilter)  returns  (Menus)  {}
 }
 
 message MenuRequest {
-    string id = 1;
     string item_type = 2; 
     string name = 3;
     int32 price = 4;
     string description = 5;
     string restaurant_id = 6;
-    string created_at = 7;
-    string updated_at = 8;
-    string deleted_at = 9;
 }
 
 message Void{}
@@ -32,14 +28,13 @@ message MenuUpateRequest {
     int32 price = 3;
     string description = 4;
     string restaurant_id = 5;
-    string updated_at = 6;
 }
 
-message MenuId {
+message Id {
     string id = 1;
 }
 
-message MenuRespons {
+message MenuResponse {
     string id = 1;
     string item_type = 2; 
     string name = 3;
@@ -48,6 +43,10 @@ message MenuRespons {
     string restaurant_id = 6;
     string created_at = 7;
     string updated_at = 8;
+}
+
+message Menus {
+    repeated MenuResponse menus = 1;
 }
 
 message MenuFilter {
