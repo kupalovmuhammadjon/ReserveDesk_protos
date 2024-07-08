@@ -5,8 +5,8 @@ option go_package = "genproto/reservations";
 package reservation;
 
 service ReservationService {
-    rpc CreateReservation(ReservationRequest)   returns (Void) {}
-    rpc UpdateReservation(Reservation)   returns (Void) {}
+    rpc CreateReservation(Reservation)   returns (Void) {}
+    rpc UpdateReservation(ReservationUpdate)   returns (Void) {}
     rpc DeleteReservation(Id)   returns (Void) {}
     rpc GetReservationById(Id)  returns (ReservationInfo) {}
     rpc ValidateReservationId(Id) returns (Exists) {}
@@ -41,7 +41,7 @@ message Exists {
 
 message Void{}
 
-message ReservationRequest {
+message ReservationUpdate {
     string restaurant_id = 2;
     string arriving_time = 3;
     string user_id = 4;
@@ -76,7 +76,7 @@ message ReservationFilter {
     string restaurant_id = 3;
     string arriving_time = 4;
     string user_id = 5;
-    int32 limmit = 6;
+    int32 limit = 6;
     int32 offset = 7;
 }
 

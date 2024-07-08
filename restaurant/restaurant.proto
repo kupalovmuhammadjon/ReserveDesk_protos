@@ -5,21 +5,39 @@ option go_package = "genproto/restaurant";
 package restaurant;
 
 service Restaurant {
-    rpc CreateRestaurant(RestaurantInfo) returns (Void);
+    rpc CreateRestaurant(RestaurantCreate) returns (Void);
     rpc GetRestaurants(RestaurantFilter) returns (Restaurants);
     rpc GetRestaurantById(Id) returns (Restaurants);
-    rpc UpdateRestaurant(Id) returns (Void);
+    rpc UpdateRestaurant(RestaurantUpdate) returns (Void);
     rpc DeleteRestaurant(Id) returns (Void);
 }
 
-message RestaurantInfo{
+message RestaurantCreate{
 	string name = 1;
 	string address = 2;
 	int32 total_avb_seats = 3;
 	string phone_number = 4;
 	string description = 5;
-    string created_at = 6;
-    string updated_at = 7;
+}
+
+message RestaurantInfo{
+    string id = 1;
+	string name = 2;
+	string address = 3;
+	int32 total_avb_seats = 4;
+	string phone_number = 5;
+	string description = 6;
+    string created_at = 7;
+    string updated_at = 8;
+}
+
+message RestaurantUpdate{
+    string id = 1;
+	string name = 2;
+	string address = 3;
+	int32 total_avb_seats = 4;
+	string phone_number = 5;
+	string description = 6;
 }
 
 message RestaurantFilter{
