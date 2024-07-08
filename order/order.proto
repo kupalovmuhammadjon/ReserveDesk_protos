@@ -8,7 +8,7 @@ service OrderService {
     rpc CreateOrder(Order) returns (Void) {}
     rpc UpdateOrder(Order) returns (Void) {}
     rpc DeleteOrder(Id) returns (Void) {}
-    rpc GetByIdOrder(Id) returns(Order) {}
+    rpc GetOrderById(Id) returns(OrderInfo) {}
     rpc GetAllOrder(OrderFilter) returns (Orders) {}
 }
 
@@ -19,7 +19,15 @@ message Order  {
 }
 
 message Orders {
-    repeated Order orders = 1;
+    repeated OrderInfo orders = 1;
+}
+
+message OrderInfo {
+    string reservation_id = 2;
+    string menu_item_id = 3;
+    int32  quantity = 4;
+    string created_at = 5;
+    string updated_at = 6;
 }
 
 message Void {}
