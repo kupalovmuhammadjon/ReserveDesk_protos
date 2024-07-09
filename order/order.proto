@@ -6,13 +6,20 @@ package order;
 
 service OrderService {
     rpc CreateOrder(Order) returns (Void) {}
-    rpc UpdateOrder(Order) returns (Void) {}
+    rpc UpdateOrder(Updateorder) returns (Void) {}
     rpc DeleteOrder(Id) returns (Void) {}
     rpc GetOrderById(Id) returns(OrderInfo) {}
     rpc GetAllOrder(OrderFilter) returns (Orders) {}
 }
 
 message Order  {
+    string reservation_id = 2;
+    string menu_item_id = 3;
+    int32  quantity = 4;
+}
+
+message Updateorder  {
+    string Id = 1;
     string reservation_id = 2;
     string menu_item_id = 3;
     int32  quantity = 4;

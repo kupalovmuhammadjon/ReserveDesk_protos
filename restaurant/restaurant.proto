@@ -44,6 +44,8 @@ message RestaurantFilter{
     string name = 1;
 	string address = 2;
 	int32 total_avb_seats = 3;
+	int32 Limit = 4;
+	int32 Offset = 5;
 }
 
 message Restaurants{
