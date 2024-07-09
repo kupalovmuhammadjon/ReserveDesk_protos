@@ -7,7 +7,7 @@ package restaurant;
 service Restaurant {
     rpc CreateRestaurant(RestaurantCreate) returns (Void);
     rpc GetRestaurants(RestaurantFilter) returns (Restaurants);
-    rpc GetRestaurantById(Id) returns (Restaurants);
+    rpc GetRestaurantById(Id) returns (RestaurantInfo);
     rpc UpdateRestaurant(RestaurantUpdate) returns (Void);
     rpc DeleteRestaurant(Id) returns (Void);
 }
