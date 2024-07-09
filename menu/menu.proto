@@ -28,6 +28,7 @@ message MenuUpateRequest {
     int32 price = 3;
     string description = 4;
     string restaurant_id = 5;
+    string Id = 6;
 }
 
 message Id {
