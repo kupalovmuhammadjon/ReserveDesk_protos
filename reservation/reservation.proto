@@ -11,7 +11,7 @@ service ReservationService {
     rpc GetReservationById(Id)  returns (ReservationInfo) {}
     rpc ValidateReservationId(Id) returns (Exists) {}
     rpc GetAllReservations(ReservationFilter)   returns (Reservations) {}
-    rpc GetMenuOfRestaurant(Id)  returns (MenuRespons) {} // menu ni tanlash imkoniyati 
+    // rpc GetMenuOfRestaurant(Id)  returns (MenuRespons) {} // menu ni tanlash imkoniyati 
 
     // ------------------------------------------------------------------------------------------
     // rpc CheckingReservation() returns () {} // Bronning mavjudligini tekshirish.
@@ -42,6 +42,7 @@ message Exists {
 message Void{}
 
 message ReservationUpdate {
+    string id = 1;
     string restaurant_id = 2;
     string arriving_time = 3;
     string user_id = 4;
