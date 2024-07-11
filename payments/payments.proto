@@ -17,6 +17,7 @@ message Payment {
 	string reservation_id = 1;
 	int64 amount = 2; 
 	string payment_method = 3;
+    string Id = 4;
 }
 
 message Id {
@@ -30,13 +31,17 @@ message PaymentsFilter{
     int32 offset = 4;
 }
 
-message AllPayments{
+message AllPayment{
     string id = 1;
     string reservation_id = 2;
 	int64 amount = 3; 
 	string payment_method = 4;
     string created_at = 5;
     string updated_at = 6;
+}
+
+message AllPayments{
+    repeated AllPayments AllPayments = 1;
 }
 
 message Void{
