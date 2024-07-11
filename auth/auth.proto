@@ -5,9 +5,9 @@ option go_package = "genproto/auth";
 package auth;
 
 service Auth {
-    rpc Register(User) returns (Void);
-    rpc Login(UserLogin) returns (Tokens);
-    rpc Logout(Id) returns (Void);
+    // rpc Register(User) returns (Void);
+    // rpc Login(UserLogin) returns (Tokens);
+    // rpc Logout(Id) returns (Void);
     rpc ShowProfile(Id) returns (Profile);
     rpc UpdateProfile(User) returns (Void);
     rpc DeleteProfile(Id) returns (Void);
@@ -24,10 +24,10 @@ message User{
 message Void{
 }
 
-message UserLogin {
-    string email = 3;
-    string password = 4;
-}
+// message UserLogin {
+//     string email = 3;
+//     string password = 4;
+// }
 
 message Tokens {
     string AccessToken = 1;
