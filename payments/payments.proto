@@ -29,6 +29,7 @@ message PaymentsFilter{
     int64 payments_to = 2;
     int32 limit = 3;
     int32 offset = 4;
+    string Id = 5;
 }
 
 message AllPayment{
