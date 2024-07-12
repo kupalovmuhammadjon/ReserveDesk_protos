@@ -10,7 +10,7 @@ service Payments{
     rpc UpdatePayment(Payment) returns (Void);
     rpc DeletePayment(Id) returns (Void);
     rpc GetStatus(Id) returns (Status);
-    rpc ValidatePaymentId(Id) returns (Status);
+    rpc ValidatePaymentId(Id) returns (Exists);
 }
 
 message Payment {
@@ -42,7 +42,7 @@ message AllPayment{
 }
 
 message AllPayments{
-    repeated AllPayments AllPayments = 1;
+    repeated AllPayment AllPayments = 1;
 }
 
 message Void{
